@@ -1,29 +1,29 @@
-import { useState } from 'react'
-
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-
-import Aboutus from './components/Aboutus'
-import Navbar from './components/Navbar'
-
-import './App.css'
-import { getVideo } from './api/fetch'
+import Home from "./components/Home";
+import Aboutus from "./components/Aboutus";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import { getVideo } from "./api/fetch";
 
 function App() {
 
-  console.log(getVideo())
+  const [videoList, setVideoList] = useState([])
+  const [video, setVideo] = useState({})
+
+  // console.log(getVideo())
 
   return (
-
-    <div className='wrapper'>
-
-
+    <div className="wrapper">
       <Router>
-
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home videoList={videoList} video={video}/>} />
+          <Route path="/about" element={<Aboutus />} />
+        </Routes>
       </Router>
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;
