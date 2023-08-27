@@ -1,11 +1,11 @@
 import React from 'react';
 import Video from './Video';
 
-const SearchResults = ({ videoList }) => {
+const SearchResults = ({ videoList, video }) => {
     return (
         <div className='searchResults'>
             {videoList.map((video) => {
-                return <Video />
+                return <Video video={video}/>
             })}
         </div>
     );

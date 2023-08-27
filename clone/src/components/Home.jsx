@@ -3,7 +3,7 @@ import ErrorMessage from "./errors/ErrorMessage";
 import { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
 
-const Home = ({ videoList }) => {
+const Home = ({ videoList, video }) => {
   const [loadingError, setLoadingError] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Home = ({ videoList }) => {
 
   return (
     <div className="home">
-      {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList}/>}
+      {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList} video={video}/>}
     </div>
   );
 };

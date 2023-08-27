@@ -9,6 +9,7 @@ import { getVideo } from "./api/fetch";
 function App() {
 
   const [videoList, setVideoList] = useState([])
+  const [video, setVideo] = useState({})
 
   // console.log(getVideo())
 
@@ -17,7 +18,8 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home videoList={videoList}/>} />
+          <Route path="/" element={<Home videoList={videoList} video={video}/>} />
+          <Route path="/about" element={<Aboutus />} />
         </Routes>
       </Router>
     </div>

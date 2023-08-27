@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Video = () => {
+const Video = ({ video }) => {
     return (
-        <div>
+        <div className='video'>
             
         </div>
     );
