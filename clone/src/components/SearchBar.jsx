@@ -6,11 +6,12 @@ import { useSearchParams } from "react-router-dom";
 
  function SearchBar() {
 	const [searchParams, setSearchParams] = useSearchParams()
-
 	function handleSubmit(event) {
 		event.preventDefault();
-		setSearchParams(searchParams.get(event.target))
+		const q = event.target.value
+		setSearchParams(searchParams.get(q))
 	}
+
 
   return (
 	<div>
