@@ -2,6 +2,7 @@ import React from "react";
 import ErrorMessage from "./errors/ErrorMessage";
 import { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
+import SearchBar from "./SearchBar";
 
 const Home = ({ videoList, video }) => {
   const [loadingError, setLoadingError] = useState(false);
@@ -16,6 +17,7 @@ const Home = ({ videoList, video }) => {
 
   return (
     <div className="home">
+      <SearchBar />
       {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList} video={video}/>}
     </div>
   );
