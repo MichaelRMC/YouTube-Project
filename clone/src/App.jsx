@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Aboutus from "./components/Aboutus";
@@ -8,10 +8,24 @@ import { getVideo } from "./api/fetch";
 
 function App() {
 
+
+
+
   const [videoList, setVideoList] = useState([])
   const [video, setVideo] = useState({})
 
-  // console.log(getVideo())
+  useEffect(() => {
+    getVideo()
+      .then((data) => {
+        setVideoList(data.items);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  console.log(videoList)
+
 
   return (
     <div className="wrapper">
