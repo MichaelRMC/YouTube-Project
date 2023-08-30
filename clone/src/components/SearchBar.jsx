@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 
  function SearchBar() {
 	const [searchParams, setSearchParams] = useSearchParams()
+	
 	function handleSubmit(event) {
 		event.preventDefault();
 		const q = event.target.value
@@ -16,7 +17,7 @@ import { useSearchParams } from "react-router-dom";
   return (
 	<div>
 		<form onSubmit={handleSubmit}>
-			<input type="search" name="search-bar" id="search-bar" placeholder="Search" />
+			<input type="search" value={q} id="search-bar" placeholder="Search" />
 			<button type="submit">Submit</button>
 		</form>
 	</div>
