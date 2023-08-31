@@ -2,12 +2,17 @@ import React from "react";
 import ErrorMessage from "./errors/ErrorMessage";
 import { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
+
+import Navbar from "./Navbar";
+
 import SearchBar from "./SearchBar";
+
 import { getVideo } from "../api/fetch";
 import Video from "./Video";
 import { useSearchParams } from "react-router-dom";
 
 const Home = ({ videoList, video, setVideoList }) => {
+
 
   const [loadingError, setLoadingError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams()
@@ -33,10 +38,13 @@ const Home = ({ videoList, video, setVideoList }) => {
   }, [videoList]);
 
   return (
+    <>
+    <Navbar />
     <div className="home">
       <SearchBar searchParams={searchParams} setSearchParams={setSearchParams}/>
       {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList} video={video}/>}
     </div>
+    </>
   );
 };
 

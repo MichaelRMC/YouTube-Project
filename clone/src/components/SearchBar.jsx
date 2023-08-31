@@ -1,14 +1,21 @@
+
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import Navbar from './Navbar';
+import { getVideo } from "../api/fetch.js";
+
 
 function SearchBar({ searchParams, setSearchParams }) {
   const [searchInput, setSearchInput] = useState("");
+
 
   function handleSubmit(event) {
     event.preventDefault();
     setSearchParams({ q: searchInput });
   }
+
+
 
   return (
     <div>

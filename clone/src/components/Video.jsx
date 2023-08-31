@@ -1,3 +1,4 @@
+
 import React from "react";
 import { getVideo } from "../api/fetch";
 
@@ -13,5 +14,6 @@ const Video = ({ video }) => {
     </div>
   );
 };
+
 
 export default Video;
