@@ -5,13 +5,14 @@ function Show() {
   const [comment, setComment] = useState({ name: "", comment: "" });
   const [section, setSection] = useState([])
 
+  const commentError = () => {
+  alert(Name and/or Comment has not been filled out.)
+} 
+
   function handleSubmit(event) {
     event.preventDefault();
-	setSection([...section ,comment])
     resetForm();
-	return (!comment) {
-		
-	})
+    return({!comment.name || !comment.comment ? commentError() : setSection([...section ,comment])})
   }
 
   function handleTextChange(event) {
