@@ -11,7 +11,8 @@ export default function Navbar() {
     return (
         <div className="navBar">
             <div className="navBarContainer">
-               
+            <Link to="/">Home</Link> 
+                <Link to="/about">AboutUs</Link> 
             </div>
         </div>
     )
