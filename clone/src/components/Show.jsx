@@ -7,8 +7,11 @@ function Show() {
 
   function handleSubmit(event) {
     event.preventDefault();
-	setSection()
+	setSection([...section ,comment])
     resetForm();
+	return (!comment) {
+		
+	})
   }
 
   function handleTextChange(event) {
@@ -34,6 +37,7 @@ function Show() {
               value={comment.name}
               onChange={handleTextChange}
               id="name"
+			  required
             />
             <label htmlFor="comment">Comment</label>
             <textarea
@@ -42,6 +46,7 @@ function Show() {
               id="comment"
               cols="20"
               rows="5"
+			  required
             ></textarea>
             <input type="submit">Submit</input>
           </fieldset>
