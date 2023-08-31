@@ -7,22 +7,9 @@ import { getVideo } from "./api/fetch";
 function App() {
 
 
-
-
   const [videoList, setVideoList] = useState([])
   const [video, setVideo] = useState({})
 
-  useEffect(() => {
-    getVideo()
-      .then((data) => {
-        setVideoList(data.items);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
-  console.log(videoList)
 
 
   return (
@@ -30,7 +17,8 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home videoList={videoList} video={video}/>} />
+
+          <Route path="/" element={<Home videoList={videoList} video={video} setVideoList={setVideoList}/>} />
           <Route path="/show" element={<Show video={video} />} />
           <Route path="/about" element={<Aboutus />} />
         </Routes>

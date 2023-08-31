@@ -1,56 +1,37 @@
-import React from 'react'
-import { useState } from "react";
+
+import React from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-<<<<<<< HEAD
 import Navbar from './Navbar';
-=======
 import { getVideo } from "../api/fetch.js";
->>>>>>> ec82ec2351999f96f3ba1f5ef24998ab8378187e
 
 
+function SearchBar({ searchParams, setSearchParams }) {
+  const [searchInput, setSearchInput] = useState("");
 
- function SearchBar() {
-	const [form, setForm] = useState("")
-	const [searchParams, setSearchParams] = useSearchParams()
-	
-	function handleSubmit(event) {
-		event.preventDefault();
-		const keyword = event.target.value
-		getVideo({keyword})
-		setSearchParams(searchParams.get(keyword))
-	}
-	
-	function handleTextChange(event) {
-		
-	}
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSearchParams({ q: searchInput });
+  }
+
 
 
   return (
-<<<<<<< HEAD
-	<>
-	<div>
-		<form onSubmit={handleSubmit}>
-			<input type="search" name="search-bar" id="search-bar" placeholder="Search" />
-			<button type="submit">Submit</button>
-		</form>
-	</div>
-	</>
-  )
-=======
     <div>
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          value={keyword}
-          onChange={handleTextChange}
+          name="search-bar"
           id="search-bar"
           placeholder="Search"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>
     </div>
   );
->>>>>>> ec82ec2351999f96f3ba1f5ef24998ab8378187e
 }
 
-export default SearchBar
+export default SearchBar;

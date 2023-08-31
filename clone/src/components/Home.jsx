@@ -2,14 +2,32 @@ import React from "react";
 import ErrorMessage from "./errors/ErrorMessage";
 import { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
-<<<<<<< HEAD
-import Navbar from "./Navbar";
-=======
-import SearchBar from "./SearchBar";
->>>>>>> 174b232f51948cb67d65fc7b0c442b54111e48bd
 
-const Home = ({ videoList, video }) => {
+import Navbar from "./Navbar";
+
+import SearchBar from "./SearchBar";
+
+import { getVideo } from "../api/fetch";
+import Video from "./Video";
+import { useSearchParams } from "react-router-dom";
+
+const Home = ({ videoList, video, setVideoList }) => {
+
+
   const [loadingError, setLoadingError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  useEffect(() => {
+    getVideo(searchParams.get("q"))
+      .then((data) => {
+        setVideoList(data.items);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [searchParams]);
+
+  console.log(videoList)
 
   useEffect(() => {
     if (videoList.length === 0) {
@@ -17,13 +35,13 @@ const Home = ({ videoList, video }) => {
     } else {
       setLoadingError(false);
     }
-  }, []);
+  }, [videoList]);
 
   return (
     <>
     <Navbar />
     <div className="home">
-      <SearchBar />
+      <SearchBar searchParams={searchParams} setSearchParams={setSearchParams}/>
       {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList} video={video}/>}
     </div>
     </>
