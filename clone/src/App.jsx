@@ -14,16 +14,16 @@ function App() {
 
   const [videoList, setVideoList] = useState([])
   const [video, setVideo] = useState({})
-
+  const [searchInput, setSearchInput] = useState("");
 
 
   return (
     <div className="wrapper">
       <Router>
-        <Navbar />
+  
         <Routes>
 
-          <Route path="/" element={<Home videoList={videoList} video={video} setVideoList={setVideoList}/>} />
+          <Route path="/" element={<Home videoList={videoList} video={video} setVideoList={setVideoList} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
           <Route path="/show" element={<Show video={video} />} />
           <Route path="/about" element={<Aboutus />} />
         </Routes>
