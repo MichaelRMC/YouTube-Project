@@ -36,6 +36,8 @@ const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) =
     }
   }, [videoList]);
 
+  
+
   return (
     <>
       <Navbar />

@@ -2,8 +2,11 @@ import React from 'react';
 import Video from './Video';
 import Navbar from './Navbar';
 import './SearchResults.css'
+import { Link, useParams } from "react-router-dom";
 
 const SearchResults = ({ videoList, video }) => {
+
+
     return (
         <>
         <div className='searchResults'>
