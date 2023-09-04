@@ -1,11 +1,8 @@
 import React from 'react'
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-<<<<<<< HEAD
 import Navbar from './Navbar';
-=======
 import { getVideo } from "../api/fetch.js";
->>>>>>> ec82ec2351999f96f3ba1f5ef24998ab8378187e
 
 
 
