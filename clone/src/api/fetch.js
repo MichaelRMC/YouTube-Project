@@ -12,3 +12,7 @@ export function getVideo(search) {
       console.error(error);
     });
 }
+
+export function getSelectedVideo(id) {
+  return fetch()
+}
