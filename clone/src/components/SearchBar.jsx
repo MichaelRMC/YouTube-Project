@@ -17,17 +17,13 @@ function SearchBar({ searchParams, setSearchParams,searchInput, setSearchInput }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          name="search-bar"
-          id="search-bar"
-          placeholder="Search"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
+      <input
+              type="text"
+              value={comment.name}
+              onChange={handleTextChange}
+              id="name"
+            />
         <button type="submit">Submit</button>
-      </form>
     </div>
   );
 }
