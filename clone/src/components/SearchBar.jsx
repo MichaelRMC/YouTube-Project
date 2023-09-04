@@ -6,16 +6,14 @@ import Navbar from './Navbar';
 import { getVideo } from "../api/fetch.js";
 
 
-function SearchBar({ searchParams, setSearchParams }) {
-  const [searchInput, setSearchInput] = useState("");
+function SearchBar({ searchParams, setSearchParams,searchInput, setSearchInput }) {
+  
 
 
   function handleSubmit(event) {
     event.preventDefault();
     setSearchParams({ q: searchInput });
   }
-
-
 
   return (
     <div>

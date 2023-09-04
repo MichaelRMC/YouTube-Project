@@ -1,9 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-// create objects of our data, map the data through cards.
-// look at react exercise for clues (props & .map)
-
 
 export default function Aboutus() {
     return (
@@ -12,28 +9,30 @@ export default function Aboutus() {
         <div>
             <div className="card" style={{ width: '18rem' }}>
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="card-link">Card link</a>
+                    <h5 className="name">Anthony Huarneck</h5>
+                    <h6 className="dateOfBirth">March 20, 1994</h6>
+                    <p className="hobbies"></p>
+                    <a href="#" className="card-link">https://github.com/anthuarneck</a>
+                    {/* Codetrack links? */}
+                    <a href="#" className="card-link">Another link</a>
+
+                </div>
+            </div>
+            <div className="card" style={{ width: '18rem' }}>
+                <div className="card-body">
+                    <h5 className="name">Davon Bridgett</h5>
+                    <h6 className="dateOfBirth">March 13, 1993</h6>
+                    <p className="hobbies"></p>
+                    <a href="#" className="card-link">https://github.com/DaviiJones/YouTube-Project</a>
                     <a href="#" className="card-link">Another link</a>
                 </div>
             </div>
             <div className="card" style={{ width: '18rem' }}>
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="card-link">Card link</a>
-                    <a href="#" className="card-link">Another link</a>
-                </div>
-            </div>
-            <div className="card" style={{ width: '18rem' }}>
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="card-link">Card link</a>
+                    <h5 className="name">Michael Caldwell</h5>
+                    <h6 className="dateOfBirth">May 3rd 1984</h6>
+                    <p className="hobbies"></p>
+                    <a href="#" className="card-link">https://github.com/MichaelRMC</a>
                     <a href="#" className="card-link">Another link</a>
                 </div>
             </div>

@@ -11,11 +11,9 @@ import { getVideo } from "../api/fetch";
 import Video from "./Video";
 import { useSearchParams } from "react-router-dom";
 
-const Home = ({ videoList, video, setVideoList }) => {
-
-
+const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) => {
   const [loadingError, setLoadingError] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     getVideo(searchParams.get("q"))
@@ -27,23 +25,33 @@ const Home = ({ videoList, video, setVideoList }) => {
       });
   }, [searchParams]);
 
-  console.log(videoList)
+  console.log(searchParams);
 
   useEffect(() => {
-    if (videoList.length === 0) {
+    if (searchParams.size === 0) {
       setLoadingError(true);
+      setSearchInput("")
     } else {
       setLoadingError(false);
     }
   }, [videoList]);
 
+  
+
   return (
     <>
-    <Navbar />
-    <div className="home">
-      <SearchBar searchParams={searchParams} setSearchParams={setSearchParams}/>
-      {loadingError ? <ErrorMessage /> : <SearchResults videoList={videoList} video={video}/>}
-    </div>
+      <Navbar />
+      <div className="home">
+        <SearchBar
+          searchParams={searchParams}
+          setSearchParams={setSearchParams} searchInput={searchInput} setSearchInput={setSearchInput}
+        />
+        {loadingError ? (
+          <ErrorMessage />
+        ) : (
+          <SearchResults videoList={videoList} video={video} />
+        )}
+      </div>
     </>
   );
 };
