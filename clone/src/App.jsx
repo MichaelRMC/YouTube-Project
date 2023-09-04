@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-<<<<<<< HEAD
-
-
-=======
 import Show from "./components/Show"
 import Aboutus from "./components/Aboutus";
 import Navbar from "./components/Navbar";
->>>>>>> ec82ec2351999f96f3ba1f5ef24998ab8378187e
 import "./App.css";
 import { getVideo } from "./api/fetch";
 

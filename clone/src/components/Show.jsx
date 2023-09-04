@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Video from "./Video.jsx";
+import CommentError from"./errors/commentError"
 
 function Show() {
   const [comment, setComment] = useState({ name: "", comment: "" });
   const [section, setSection] = useState([])
+  const [error, setError] = useState()
 
-  const commentError = () => {
-  alert(Name and/or Comment has not been filled out.)
-} 
+
 
   function handleSubmit(event) {
     event.preventDefault();
