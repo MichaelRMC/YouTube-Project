@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import Aboutus from "./components/Aboutus"
+import Show from "./components/Show"
 import "./App.css";
 import { getVideo } from "./api/fetch";
 
