@@ -6,7 +6,6 @@ import { Link, useParams } from "react-router-dom";
 
 const SearchResults = ({ videoList, video }) => {
 
-
     return (
         <>
         <div className='searchResults'>
