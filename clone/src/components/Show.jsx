@@ -22,12 +22,17 @@ function Show({ video, setVideo }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-	setSection()
+    handleTextChange(event)
+	setSection([comment, ...section])
+  console.log(comment, section)
     resetForm();
   }
 
   function handleTextChange(event) {
-	setComment({name: event.target.value, comment: event.target.value})
+    setComment({
+      ...comment,
+      [event.target.id]: event.target.value 
+    });
   }
 
   function resetForm() {
@@ -74,7 +79,12 @@ function Show({ video, setVideo }) {
           </fieldset>
         </form>
       </div>
-      <section></section>
+      <section>{section.map((comment, index) => (
+    <div key={index}>
+      <h5>{comment.name}</h5>
+      <p>{comment.comment}</p>
+    </div>
+  ))}</section>
     </>
   );
 }
