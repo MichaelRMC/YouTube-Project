@@ -1,0 +1,21 @@
+.navBar header {
+    background-color: #ff3131;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(1fr,3);
+    grid-template-areas: "h h h";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navBar h2{
+    color: #fff;
+    
+}
+
+.navBar img{
+    height: 75px;
+    margin: 15px 0 0 15px;
+    width: auto;
+}

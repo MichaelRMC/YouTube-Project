@@ -1,10 +1,9 @@
-
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from './Navbar';
 import { getVideo } from "../api/fetch.js";
-
+import "./SearchBar.css"
 
 function SearchBar({ searchParams, setSearchParams,searchInput, setSearchInput }) {
   
@@ -16,9 +15,9 @@ function SearchBar({ searchParams, setSearchParams,searchInput, setSearchInput }
   }
 
   return (
-    <div>
+    <div className="searchBarContainer">
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="search-input"
           type="search"
           name="search-bar"
           id="search-bar"

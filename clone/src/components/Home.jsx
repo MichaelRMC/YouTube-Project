@@ -2,11 +2,8 @@ import React from "react";
 import ErrorMessage from "./errors/ErrorMessage";
 import { useState, useEffect } from "react";
 import SearchResults from "./SearchResults";
-
 import Navbar from "./Navbar";
-
 import SearchBar from "./SearchBar";
-
 import { getVideo } from "../api/fetch";
 import Video from "./Video";
 import { useSearchParams } from "react-router-dom";
@@ -25,7 +22,7 @@ const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) =
       });
   }, [searchParams]);
 
-  console.log(searchParams);
+  console.log(videoList);
 
   useEffect(() => {
     if (searchParams.size === 0) {
@@ -36,7 +33,7 @@ const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) =
     }
   }, [videoList]);
 
-  
+
 
   return (
     <>
