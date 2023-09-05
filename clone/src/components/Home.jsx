@@ -25,7 +25,7 @@ const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) =
       });
   }, [searchParams]);
 
-  console.log(searchParams);
+  console.log(videoList);
 
   useEffect(() => {
     if (searchParams.size === 0) {
@@ -36,7 +36,7 @@ const Home = ({ videoList, video, setVideoList, searchInput, setSearchInput }) =
     }
   }, [videoList]);
 
-  
+
 
   return (
     <>
