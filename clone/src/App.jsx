@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home videoList={videoList} video={video} setVideoList={setVideoList} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
-          <Route path="/show/:id" element={<Show video={video} />} />
+          <Route path="/show/:videoId" element={<Show video={video} setVideo={setVideo}/>} />
           <Route path="/about" element={<Aboutus />} />
         </Routes>
       </Router>
