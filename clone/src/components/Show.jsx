@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Video from "./Video.jsx";
+import { getSelectedVideo } from "../api/fetch.js";
+import { useParams } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
 
-function Show() {
+
+function Show({ video, setVideo }) {
   const [comment, setComment] = useState({ name: "", comment: "" });
   const [section, setSection] = useState([])
+  const { videoId } = useParams()
+
+  // useEffect(() => {
+  //   getSelectedVideo(videoId).then((data) => {
+  //     console.log(data)
+  //     console.log(videoId)
+  //     setVideo(data.items[0])
+  //   }).catch((err) => {
+  //     console.error(err)
+  //   })
+  // }, [videoId])
 
   function handleSubmit(event) {
     event.preventDefault();
-	setSection()
+    handleTextChange(event)
+	setSection([comment, ...section])
+  console.log(comment, section)
     resetForm();
   }
 
   function handleTextChange(event) {
-	setComment({name: event.target.value, comment: event.target.value})
+    setComment({
+      ...comment,
+      [event.target.id]: event.target.value 
+    });
   }
 
   function resetForm() {
@@ -21,8 +41,20 @@ function Show() {
 
   return (
     <>
+    <Navbar />
       <div>
-        <Video />
+        {video ? (
+          <div className="video">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            title="video"
+          />
+        </div>
+        ) : (
+          <p>Loading video details...</p>
+        )}
       </div>
       <div>
         <form onSubmit={handleSubmit}>
@@ -43,11 +75,16 @@ function Show() {
               cols="20"
               rows="5"
             ></textarea>
-            <input type="submit">Submit</input>
+            <input type="submit" value="Submit" />
           </fieldset>
         </form>
       </div>
-      <section></section>
+      <section>{section.map((comment, index) => (
+    <div key={index}>
+      <h5>{comment.name}</h5>
+      <p>{comment.comment}</p>
+    </div>
+  ))}</section>
     </>
   );
 }
